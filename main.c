@@ -1,3 +1,26 @@
+/**
+ * @file main.c
+ * @brief Implements a simple FreeRTOS monitoring system on the BitDogLab board.
+ *
+ * This project demonstrates basic task creation, inter-task communication using queues and
+ * semaphores, and GPIO control with FreeRTOS on the BitDogLab development board.
+ * It fulfills the requirements for the EmbarcaTech residency program, specifically
+ * the "Sistema de Monitoramento Simples com 3 Tarefas" activity.
+ *
+ * @author Luis Felipe dos Santos Patrocinio
+ * @date 2024-03-27
+ *
+ * @hardware BitDogLab Board
+ *   - Button connected to GPIO 5 (PIN_BUTTON_A) - Configured with a pull-up resistor.
+ *   - LED connected to GPIO 12 (PIN_LED_BLUE)
+ *
+ * @software
+ *   - FreeRTOS
+ *   - Pico SDK (configured for BitDogLab)
+ *
+ * @see README.md for detailed information about the project.
+ */
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "FreeRTOS.h"

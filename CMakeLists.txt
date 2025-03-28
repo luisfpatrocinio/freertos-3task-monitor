@@ -29,41 +29,41 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 include(pico_sdk_import.cmake)
 
 # Pull in FreeRTOS
-# include($ENV{FREERTOS_KERNEL_PATH}/Source/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
-include(C:/FreeRTOSv202212.01/FreeRTOS/Source/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
+include($ENV{FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
+# include(C:/FreeRTOSv202212.01/FreeRTOS/Source/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
-project(Cap2Un1 C CXX ASM)
+project(freertos-3task-monitor C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Cap2Un1 main.c )
+add_executable(freertos-3task-monitor main.c )
 
-pico_set_program_name(Cap2Un1 "Cap2Un1")
-pico_set_program_version(Cap2Un1 "0.1")
+pico_set_program_name(freertos-3task-monitor "freertos-3task-monitor")
+pico_set_program_version(freertos-3task-monitor "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(Cap2Un1 0)
-pico_enable_stdio_usb(Cap2Un1 1)
+pico_enable_stdio_uart(freertos-3task-monitor 0)
+pico_enable_stdio_usb(freertos-3task-monitor 1)
 
 # Add the standard library to the build
-target_link_libraries(Cap2Un1
+target_link_libraries(freertos-3task-monitor
         pico_stdlib
         FreeRTOS-Kernel
         FreeRTOS-Kernel-Heap4
         )
 
 # Add the standard include files to the build
-target_include_directories(Cap2Un1 PRIVATE
+target_include_directories(freertos-3task-monitor PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(Cap2Un1 
+target_link_libraries(freertos-3task-monitor 
         
         )
 
-pico_add_extra_outputs(Cap2Un1)
+pico_add_extra_outputs(freertos-3task-monitor)
 
